@@ -4,17 +4,7 @@ import time
 import queue
 import socket
 import threading
-from colorama import Fore, Style, init
-from requests.exceptions import ConnectionError
 
-
-#enable coloring on win
-try:
-	import win_unicode_console
-	win_unicode_console.enable()
-	init()
-except ImportError:
-	pass
 
 #queue and lock var
 domains = queue.Queue()
@@ -38,7 +28,7 @@ for sub in subfile:
 
 try:
 	subfile.close()
-except:
+except AttributeError:
 	pass
 
 # checking cname
